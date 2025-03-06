@@ -3,9 +3,12 @@ import { StringSession } from "telegram/sessions/index.js";
 import { NewMessage } from "telegram/events/NewMessage.js";
 import readline from "readline";
 import fs from "fs";
+import { config } from "dotenv";
+config();
 
-const apiId = 28760102;
-const apiHash = "5fd0737f11d1939bb25e8073a2d15262";
+
+const apiId = Number(process.env.API_ID);
+const apiHash = process.env.API_HASH;
 const sessionFilePath = "./session.txt";
 
 // List of messages to block
@@ -76,7 +79,8 @@ const client = new TelegramClient(
       "cryptotwk",
       "tradingtechstreetcryptoforex",
     ]; // Add your two source channels
-    const targetChannelId = -1002471742018; // Single destination channel
+    const targetChannelId = process
+    .env.TARGET_CHANNEL_ID; // Single destination channel
 
     console.log(
       `Listening for new messages in: ${sourceChannelUsernames.join(", ")}`
