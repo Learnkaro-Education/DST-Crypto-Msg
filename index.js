@@ -9,7 +9,6 @@ config();
 
 const apiId = Number(process.env.API_ID);
 const apiHash = process.env.API_HASH;
-const sessionFilePath = "./session.txt";
 
 // List of messages to block
 const messageNotRequired = [
@@ -21,13 +20,7 @@ const messageNotRequired = [
 // Add "karol" to the blocked words list
 const blockedWords = ["karol", "tradingtechstreet", "live","Not SEBI Registered","Registered","SEBI", "neha"];
 
-let sessionString = "";
-if (fs.existsSync(sessionFilePath)) {
-  sessionString = fs.readFileSync(sessionFilePath, "utf8");
-  console.log("Session string loaded from file.");
-} else {
-  console.log("No session string found. A new login is required.");
-}
+let sessionString = process.env.SESSION_KEY;
 
 const rl = readline.createInterface({
   input: process.stdin,
