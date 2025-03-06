@@ -75,7 +75,6 @@ const client = new TelegramClient(
     const sourceChannelUsernames = [
       "cryptotwk",
       "tradingtechstreetcryptoforex",
-      "message_demo_2"
     ]; // Add your two source channels
     const targetChannelId = -1002471742018; // Single destination channel
 
